@@ -2,7 +2,7 @@ import json
 
 
 class Settings:
-    def __init__(self, directory: str, **kwargs):
+    def __init__(self, directory: str, **kwargs) -> None:
         self._directory = directory
         if not kwargs:
             raise Exception("Missing JSON files")

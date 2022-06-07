@@ -18,20 +18,22 @@ class GameMaker:
         self._map = Map(self._map_size[0], self._map_size[1])
         self._current_battles = []
 
-    def load_game(self):
+    def load_game(self) -> None:
         self.map.create()
         self.map.attach(self._player)
 
-    def move_player(self, dest_x: int, dest_y: int):
+    def move_player(self, dest_x: int, dest_y: int) -> None:
         self.map.clear_entities()
         self.map.move(self._player, dest_x, dest_y)
         [self.map.attach(Mob(dest_x, dest_y), dest_x, dest_y) for _ in range(random.randint(2, 5))]
 
-    def begin_battle(self, player) -> Battle:
-        pass
+    def begin_battle(self) -> Battle:
+        battle = Battle(self._player, self.player_cell)
+        self._current_battles.append(battle)
+        return battle
 
     @property
-    def player_cell(self): return self.map.cells[self._player.pos["x"]][self._player.pos["y"]]
+    def player_cell(self) -> Cell: return self.map.cells[self._player.pos["x"]][self._player.pos["y"]]
     @property
     def settings(self) -> Settings: return self._settings
     @property

@@ -6,7 +6,7 @@ class Map:
         self._map_size = {'x': map_size_x, 'y': map_size_y}
         self._cells = []
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self._cells}"
 
     def create(self) -> None:
@@ -21,7 +21,7 @@ class Map:
         entity.pos = {'x': cell_x, 'y': cell_y}
         self._cells[cell_x][cell_y] += {"id": entity.id, "obj": entity}
 
-    def move(self, player: object, dest_x: int, dest_y: int):
+    def move(self, player: object, dest_x: int, dest_y: int) -> None:
         dest_x = 0 if dest_x > len(self._cells) - 1 else dest_x
         dest_y = 0 if dest_y > len(self._cells[0]) - 1 else dest_y
         self._cells[player.pos['x']][player.pos['y']] -= 0

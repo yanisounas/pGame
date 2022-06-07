@@ -1,3 +1,4 @@
+
 class Cell:
     def __init__(self, cell_pos_x: int, cell_pos_y: int) -> None:
         self._id = None
@@ -12,7 +13,7 @@ class Cell:
         self.remove_entity(entity_id)
         return self
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<Cell [{self._cell_pos['x']}, {self._cell_pos['y']}]>"
 
     def add_entity(self, entity: dict[str: int, str:object]) -> None:
@@ -31,6 +32,13 @@ class Cell:
 
     def clear_entities(self) -> None:
         self._entities = {}
+
+    def get_mobs(self) -> list:
+        tmp = []
+        for entity in self._entities:
+            if entity != 0:
+                tmp.append({"entity_id": self._entities[entity].id, "obj": self._entities[entity]})
+        return tmp
 
     @property
     def entities(self) -> dict: return self._entities

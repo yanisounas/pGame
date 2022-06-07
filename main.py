@@ -23,6 +23,7 @@ def main():
     gm = Game.GameMaker("Test")
     gm.load_game()
     gm.move_player(3, 2)
+    gm.begin_battle()
 
     pass
 
