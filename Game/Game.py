@@ -3,6 +3,7 @@ import random
 from Game.Core.Battle.Battle import Battle
 from Game.Core.Entity.Player import Player
 from Game.Core.Entity.Mob import Mob
+from Game.Core.Map.Cell.Cell import Cell
 from Game.Core.Map.Map import Map
 from Game.Core.Settings.Settings import Settings
 

@@ -1,11 +1,13 @@
 import json
 
+from Game.Core.Exceptions.SettingsExceptions import *
+
 
 class Settings:
     def __init__(self, directory: str, **kwargs) -> None:
         self._directory = directory
         if not kwargs:
-            raise Exception("Missing JSON files")
+            raise MissingException("Missing JSON files. Settings(directory, setting_name=\"filename.json\", ...)")
 
         self._files = {}
         self._settings = {"Test": "ok"}
@@ -24,7 +26,7 @@ class Settings:
                 raise TypeError(f"Expected type 'str', got '{_type}' instead ")
 
             if arg not in self._files:
-                raise KeyError(f"No settings for {arg}")
+                raise SettingNotFound(f"No settings for {arg}")
 
             with open(self._files[arg], 'w') as file:
                 json.dump(self._settings[arg], file)
