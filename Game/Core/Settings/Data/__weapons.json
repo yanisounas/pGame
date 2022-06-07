@@ -1,0 +1,10 @@
+{
+  "0": {
+    "name": "unarmed",
+    "damages_mult": 1.5
+  },
+  "common": {},
+  "uncommon": {},
+  "rare": {},
+  "legendary": {}
+}
