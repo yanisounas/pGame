@@ -1,3 +1,7 @@
+from typing import List, Dict
+
+from Game.Core.Entity.Entity import Entity
+
 
 class Cell:
     def __init__(self, cell_pos_x: int, cell_pos_y: int) -> None:
@@ -16,10 +20,10 @@ class Cell:
     def __repr__(self) -> str:
         return f"<Cell [{self._cell_pos['x']}, {self._cell_pos['y']}]>"
 
-    def add_entity(self, entity: dict[str: int, str:object]) -> None:
+    def add_entity(self, entity: Dict[int, Entity]) -> None:
         self._entities[entity['id']] = entity['obj']
 
-    def add_entities(self, entities: list[dict[str: int, str:object], ...]) -> None:
+    def add_entities(self, entities: List[Dict[int, Entity]]) -> None:
         for entity in entities:
             self.add_entity(entity)
 
