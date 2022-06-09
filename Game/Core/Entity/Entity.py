@@ -1,3 +1,6 @@
+from Game.Core.Weapon.Weapon import Weapon
+
+
 class Entity:
     def __init__(self) -> None:
         self._id = 0
@@ -5,8 +8,7 @@ class Entity:
         self._name = None
         self._life_points = 100
         self._damages = 10
-        self._weapon_type = None
-        self._weapon_id = 0
+        self._weapon = Weapon(0)
         self._level = 1
         self._cell = None
 
@@ -21,7 +23,7 @@ class Entity:
     @property
     def damages(self) -> int: return self._damages
     @property
-    def weapon_id(self) -> int: return self._weapon_id
+    def weapon(self) -> Weapon: return self._weapon
     @property
     def level(self) -> int: return self._level
     @id.setter
@@ -34,8 +36,8 @@ class Entity:
     def life_points(self, life_points: int) -> None: self._life_points = life_points
     @damages.setter
     def damages(self, damages: int) -> None: self._damages = damages
-    @weapon_id.setter
-    def weapon_id(self, weapon_id: int) -> None: self._weapon_id = weapon_id
+    @weapon.setter
+    def weapon(self, weapon: Weapon) -> None: self._weapon = weapon
     @level.setter
     def level(self, level: int) -> None: self._level = level
 

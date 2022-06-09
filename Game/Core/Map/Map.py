@@ -1,6 +1,7 @@
 from Game.Core.Map.Cell.Cell import *
 
 
+
 class Map:
     def __init__(self, map_size_x: int, map_size_y: int) -> None:
         self._map_size = {'x': map_size_x, 'y': map_size_y}
@@ -34,5 +35,4 @@ class Map:
                 column.clear_entities()
 
     @property
-    def cells(self) -> list:
-        return self._cells
+    def cells(self) -> list: return self._cells

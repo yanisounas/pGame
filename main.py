@@ -1,6 +1,7 @@
 from Game import Game
 from Game.CLI import *
 from Game.Core.Settings.Settings import Settings
+from Game.Core.Weapon.Weapon import Weapon
 
 
 def main():
@@ -21,10 +22,10 @@ def main():
     # TODO: Remplacer les exceptions built-in
 
     gm = Game.GameMaker("Test")
-    gm.load_game()
-    gm.move_player(3, 2)
-    gm.begin_battle()
-
+    gm.load_map()
+    for row in gm.map.cells:
+        for column in row:
+            print(column.entities)
     pass
 
 

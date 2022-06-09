@@ -1,10 +1,10 @@
 {
   "0": {
+    "id": 0,
+    "rarity": "common",
     "name": "unarmed",
-    "damages_mult": 1.5
-  },
-  "common": {},
-  "uncommon": {},
-  "rare": {},
-  "legendary": {}
+    "damages_mult": 1.5,
+    "description": "It's your hand, yeah"
+  }
 }
+

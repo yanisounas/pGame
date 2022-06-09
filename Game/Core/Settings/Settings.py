@@ -10,7 +10,7 @@ class Settings:
             raise MissingException("Missing JSON files. Settings(directory, setting_name=\"filename.json\", ...)")
 
         self._files = {}
-        self._settings = {"Test": "ok"}
+        self._settings = {}
         for k, v in kwargs.items():
             self._files[k] = f"{self._directory}{v}"
             self._settings[k] = self._load_json(self._files[k])
