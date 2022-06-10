@@ -3,8 +3,10 @@ import platform
 import os
 import sys
 import time
+import multiprocessing
 
 from art import *
+from Game.Core.Settings import *
 
 _COLORS = {
     "PURPLE": "\033[95m",
@@ -38,6 +40,11 @@ _ALIASES = {
 }
 
 
+def get_history(item: str):
+    settings = Settings("./Game/Core/Settings/Data/", history="__history.json")
+    return settings["history"][item]
+
+
 def _replace_colors(colors, value, regx) -> str:
     _colors = []
     [_colors.append(_COLORS[c] if c in _COLORS else _ALIASES[c]) if c in _COLORS or c in _ALIASES else regx.remove(f"%{c}%") for c in colors]
@@ -52,14 +59,29 @@ def colored_print(value: str) -> None:
     print(_replace_colors([c.split('%')[1].upper() for c in regx], value, regx))
 
 
-def delay_print(value: str, delay: float, eol: bool = True) -> None:
+def delay_print(value: str, delay: float = .04, end: str = "") -> None:
+    count = 0
+
     for letter in value:
-        print(letter, end='')
+        if count == len(value)-1:
+            print(letter, end=end)
+        else:
+            print(letter, end='')
         sys.stdout.flush()
         time.sleep(delay)
-    print()
+        count += 1
+
+
+def input_delay_print(value: str, delay: float = .04, end: str = "") -> None:
+    d_print = multiprocessing.Process(target=delay_print, args=(value, delay, end, ))
+    d_print.start()
+    input("Press enter to continue\n")
+    d_print.terminate()
+    d_print.join()
+    clear_screen()
+    print(value)
 
 
 def clear_screen(delay: float = .5):
     time.sleep(delay)
-    os.system('cls' if platform.system() == 'Windows' else 'clear')
+    os.system('cls' if platform.system() == "Windows" else "clear")

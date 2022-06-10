@@ -1,6 +1,8 @@
 from Game import *
 
-tprint("Game Menu")
-clear_screen(1)
-delay_print("blablabla", .5)
-print("test")
+
+if __name__ == "__main__":
+    tprint("Game Menu")
+    clear_screen(1)
+    intro = get_history("intro")
+    input_delay_print(intro[0], end="\n")
