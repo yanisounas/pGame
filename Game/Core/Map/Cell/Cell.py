@@ -9,7 +9,7 @@ class Cell:
         self._cell_pos = {'x': cell_pos_x, 'y': cell_pos_y}
         self._entities = {}
 
-    def __add__(self, entities: dict or list) -> object:
+    def __add__(self, entities: Dict or List) -> object:
         self.add_entity(entities)
         return self
 
@@ -37,7 +37,7 @@ class Cell:
     def clear_entities(self) -> None:
         self._entities = {}
 
-    def get_mobs(self) -> list:
+    def get_mobs(self) -> List:
         tmp = []
         for entity in self._entities:
             if entity != 0:
@@ -45,6 +45,6 @@ class Cell:
         return tmp
 
     @property
-    def entities(self) -> dict: return self._entities
+    def entities(self) -> Dict: return self._entities
     @property
-    def cell_pos(self) -> dict: return self._cell_pos
+    def cell_pos(self) -> Dict: return self._cell_pos

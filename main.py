@@ -5,16 +5,8 @@ from Game.Core.Weapon.Weapon import Weapon
 
 
 def main():
-    # TODO: Battle() \
-    #  (se lance lorsqu'un player souhaite attaquer tous les mobs de sa map ou \
-    #  lorsque le player s'approche d'un mob et donc se fait agresser)
 
-    # TODO: Système de Weapon
-
-    # TODO: Système de Mob plus complet \
-    #  (+ Les Mob spawn dès que le player arrive sur la map, pas la cellule, changer ça)
-
-    # TODO: Les Settings
+    # TODO: Système de Mob plus complet
 
     # TODO: Loot() \
     #  (Argent, XP et Weapons qui se drop sur les Mob, après une Battle(), en fonction de leur nombre, du niveau)
@@ -25,7 +17,7 @@ def main():
     gm.load_map()
     for row in gm.map.cells:
         for column in row:
-            print(column.entities)
+            print(f"{column.cell_pos['x']};{column.cell_pos['y']} {column.entities}")
     pass
 
 

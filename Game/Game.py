@@ -28,8 +28,8 @@ class GameMaker:
         self.map.create()
         self.map.attach(self._player)
         for _ in range(random.randint(2, 5)):
-            x = random.randint(1, self._map_size[0])
-            y = random.randint(1, self._map_size[1])
+            x = random.randint(1, self._map_size[0]-1)
+            y = random.randint(1, self._map_size[1]-1)
             self.map.attach(Mob(x, y), x, y)
 
     def move_player(self, dest_x: int, dest_y: int) -> None:
