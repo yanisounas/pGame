@@ -75,9 +75,9 @@ def delay_print(value: str, delay: float = .04, end: str = "") -> None:
 def input_delay_print(value: str, delay: float = .04, end: str = "") -> None:
     d_print = multiprocessing.Process(target=delay_print, args=(value, delay, end, ))
     d_print.start()
+    d_print.join()
     input("Press enter to continue\n")
     d_print.terminate()
-    d_print.join()
     clear_screen()
     print(value)
 
