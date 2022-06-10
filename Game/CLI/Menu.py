@@ -1,6 +1,10 @@
 import re
+import platform
+import os
+import sys
 import time
-# from art import *
+
+from art import *
 
 _COLORS = {
     "PURPLE": "\033[95m",
@@ -48,7 +52,14 @@ def colored_print(value: str) -> None:
     print(_replace_colors([c.split('%')[1].upper() for c in regx], value, regx))
 
 
-def delay_print(value: str, delay: float) -> None:
+def delay_print(value: str, delay: float, eol: bool = True) -> None:
     for letter in value:
         print(letter, end='')
+        sys.stdout.flush()
         time.sleep(delay)
+    print()
+
+
+def clear_screen(delay: float = .5):
+    time.sleep(delay)
+    os.system('cls' if platform.system() == 'Windows' else 'clear')

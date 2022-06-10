@@ -20,10 +20,10 @@ class Cell:
     def __repr__(self) -> str:
         return f"<Cell [{self._cell_pos['x']}, {self._cell_pos['y']}]>"
 
-    def add_entity(self, entity: Dict[int, Entity]) -> None:
+    def add_entity(self, entity: Dict[str, Entity]) -> None:
         self._entities[entity['id']] = entity['obj']
 
-    def add_entities(self, entities: List[Dict[int, Entity]]) -> None:
+    def add_entities(self, entities: List[Dict[str, Entity]]) -> None:
         for entity in entities:
             self.add_entity(entity)
 

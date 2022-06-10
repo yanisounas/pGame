@@ -26,8 +26,6 @@ class Battle:
 
         self.next_turn()
 
-
-
     @property
     def player(self) -> Player: return self._player
     @property

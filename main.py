@@ -15,9 +15,6 @@ def main():
 
     gm = Game.GameMaker("Test")
     gm.load_map()
-    for row in gm.map.cells:
-        for column in row:
-            print(f"{column.cell_pos['x']};{column.cell_pos['y']} {column.entities}")
     pass
 
 
